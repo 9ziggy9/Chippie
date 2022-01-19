@@ -15,8 +15,10 @@ There is an addition register named "I" that is generally used to store memory a
 Also has 16-bit PC (program counter), next instruction executed after 2 byte step.
 Also has 8-bit stack pointer, register that points to a location in stack.
 
-Sound timer and delay timer (st and dt) executes when non-zero, decrements at rate of
+Sound timer and delay timer (st and dt) execute when non-zero, decrements at rate of
 60 hz.
+
+Display is monochromatic 64x32 pixels (we will scale up)
 
 SOURCES:
 chip-8 specifications - http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
