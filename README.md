@@ -7,5 +7,16 @@ The Chip-8 language is capable of accessing up to 4KB (4,096 bytes) of RAM, from
 
 Most Chip-8 programs start at location 0x200 (512), but some begin at 0x600 (1536). Programs beginning at 0x600 are intended for the ETI 660 computer.
 
+Note that stack is not part of main memory, it is a set of 16 16-bit values.
+
+Data registers are from V0-VF.
+There is an addition register named "I" that is generally used to store memory addresses.
+
+Also has 16-bit PC (program counter), next instruction executed after 2 byte step.
+Also has 8-bit stack pointer, register that points to a location in stack.
+
+Sound timer and delay timer (st and dt) executes when non-zero, decrements at rate of
+60 hz.
+
 SOURCES:
 chip-8 specifications - http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
