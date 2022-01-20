@@ -23,6 +23,7 @@ Sound timer and delay timer (st and dt) execute when non-zero, decrements at rat
 
 Display is monochromatic 64x32 pixels (we will scale up)
 When pixel collisions occur, they XOR'd.
+Pixels out of range will be remapped to opposite edges.
 
 #### SOURCES
 chip-8 specifications: http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
