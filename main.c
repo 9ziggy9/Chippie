@@ -33,7 +33,6 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
                         (hex >> (0*8)) & 0xFF));
 }
 
-
 int main(int argc, char **argv) {
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
