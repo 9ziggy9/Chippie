@@ -1,0 +1,7 @@
+#ifndef COLORS_H_
+#define COLORS_H_
+
+#define BACKGROUND_COLOR 0x0000AAFF
+#define FOREGROUND_COLOR 0xBBBBBBFF
+
+#endif // COLORS_H_

@@ -21,7 +21,6 @@ void *sdl_check_pointer(void *ptr) {
     return ptr;
 }
 
-
 int main(int argc, char **argv) {
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
@@ -39,6 +38,7 @@ int main(int argc, char **argv) {
 
     int quit = 0;
     while(!quit) {
+        // event loop
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             switch (event.type) {
@@ -47,6 +47,7 @@ int main(int argc, char **argv) {
                 } break;
             }
         }
+
         SDL_SetRenderDrawColor(renderer, 0, 0, 170, 0); // classic C64 bg
         SDL_RenderClear(renderer); // clears with bg color
         SDL_SetRenderDrawColor(renderer, 187,187,187,0); // set draw color gray
