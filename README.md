@@ -35,3 +35,4 @@ Pixels out of range will be remapped to opposite edges.
 
 #### SOURCES
 chip-8 specifications: http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
+guide: https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
