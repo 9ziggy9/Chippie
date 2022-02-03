@@ -4,9 +4,7 @@
 #include <SDL2/SDL.h>
 
 #include "include/colors.h"
-
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 320
+#include "include/chip8.h"
 
 int sdl_check_error(int code) {
     if (code < 0) {
@@ -40,7 +38,8 @@ int main(int argc, char **argv) {
         "Chippie Window",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        WINDOW_WIDTH, WINDOW_HEIGHT,
+        CHIP8_DISPLAY_WIDTH * WINDOW_SCALE,
+        CHIP8_DISPLAY_HEIGHT * WINDOW_SCALE,
         SDL_WINDOW_SHOWN
     );
     sdl_check_pointer(window);
