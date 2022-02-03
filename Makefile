@@ -4,9 +4,8 @@
 PKGS=sdl2
 CFLAGS=-Wall -ggdb -std=c11 -pedantic `pkg-config --cflags sdl2`
 LIBS=`pkg-config --libs sdl2`
-HDRS=include/colors.h
 
-chippie: main.c $(HDRS)
+chippie: main.c
 	$(CC) $(CFLAGS) -o chippie main.c $(LIBS)
 
 clean:
