@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <math.h>
+
 #include <SDL2/SDL.h>
+
+#include "colors.h"
 
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 320
@@ -21,6 +24,16 @@ void *sdl_check_pointer(void *ptr) {
     return ptr;
 }
 
+void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
+    sdl_check_error(SDL_SetRenderDrawColor(
+                        renderer,
+                        (hex >> (3*8)) & 0xFF,
+                        (hex >> (2*8)) & 0xFF,
+                        (hex >> (1*8)) & 0xFF,
+                        (hex >> (0*8)) & 0xFF));
+}
+
+
 int main(int argc, char **argv) {
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
@@ -33,7 +46,8 @@ int main(int argc, char **argv) {
     );
     sdl_check_pointer(window);
 
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_TEXTUREACCESS_TARGET);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
+                                                SDL_TEXTUREACCESS_TARGET);
     sdl_check_pointer(renderer);
 
     int quit = 0;
@@ -48,16 +62,17 @@ int main(int argc, char **argv) {
             }
         }
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 170, 0); // classic C64 bg
+        set_color_hex(renderer, BACKGROUND_COLOR);
         SDL_RenderClear(renderer); // clears with bg color
-        SDL_SetRenderDrawColor(renderer, 187,187,187,0); // set draw color gray
+
+        set_color_hex(renderer, FOREGROUND_COLOR);
         SDL_Rect r;
         r.x = 0;
         r.y = 0;
         r.w = 40;
         r.h = 40;
-        SDL_RenderDrawRect(renderer, &r); // draws rect to screen, need to present
-        SDL_RenderPresent(renderer); // present changes
+        SDL_RenderDrawRect(renderer, &r); // draws rect on buffer
+        SDL_RenderPresent(renderer); // present next buffer change
     }
 
     SDL_DestroyWindow(window);
