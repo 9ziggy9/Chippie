@@ -6,7 +6,8 @@ Graphics are provided through SDL2
 ## INSTALLATION
 
 ``` shell
-git clone git@github.com:9ziggy9/Chippie.git
+git clone https://github.com/9ziggy9/Chippie
+cd Chippie
 make
 ./chippie
 ```
