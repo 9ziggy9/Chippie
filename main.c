@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 
-#include "colors.h"
+#include "include/colors.h"
 
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 320
