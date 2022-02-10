@@ -3,8 +3,8 @@
 
 #include <SDL2/SDL.h>
 
-#include "src/colors.h"
-#include "src/chip8.h"
+#include "include/colors.h"
+#include "include/chip8.h"
 
 int sdl_check_error(int code) {
     if (code < 0) {
