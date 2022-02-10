@@ -13,7 +13,7 @@ chippie: main.c $(OBJECTS)
 	$(CC) $(INCLUDES) $(CFLAGS) main.c $(OBJECTS) $(LIBS) -o chippie
 
 chip8memory: src/chip8memory.c
-	$(CC) $(INCLUDES) ./src/chip8memory.c -c -o ./build/chip8memory.o
+	$(CC) $(INCLUDES) -g ./src/chip8memory.c -c -o ./build/chip8memory.o
 
 clean:
 	rm -rf ./chippie ./build/*
