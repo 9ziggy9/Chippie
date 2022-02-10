@@ -3,8 +3,8 @@
 
 #include <SDL2/SDL.h>
 
-#include "include/colors.h"
-#include "include/chip8.h"
+#include "src/colors.h"
+#include "src/chip8.h"
 
 int sdl_check_error(int code) {
     if (code < 0) {
@@ -25,7 +25,7 @@ void *sdl_check_pointer(void *ptr) {
 void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
     sdl_check_error(SDL_SetRenderDrawColor(
                         renderer,
-                        (hex >> (3*8)) & 0xFF,
+                        (hex >> (3*8)) & 0xFF, // shift and mask
                         (hex >> (2*8)) & 0xFF,
                         (hex >> (1*8)) & 0xFF,
                         (hex >> (0*8)) & 0xFF));
