@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-// Handle more elegantly in the future
+// TODO: handle memory checking more elegantly in future.
 static void memory_in_bounds(int addr) {
     printf("Assert address 0x%x is in bounds", addr);
     assert(addr >= 0 && addr < CHIP8_MEMORY_SIZE);
