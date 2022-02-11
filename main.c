@@ -34,8 +34,8 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
 int main(int argc, char **argv) {
 
     Chip8 chip8;
-    memory_set(50, 'Z', &chip8.memory);
-    printf("%c\n", memory_get(50, &chip8.memory));
+    memory_set(0xFF, 'Z', &chip8.memory);
+    printf("%c\n", memory_get(0xFF, &chip8.memory));
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
