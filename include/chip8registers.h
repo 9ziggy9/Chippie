@@ -6,6 +6,10 @@
 typedef struct {
     unsigned char V[CHIP8_TOTAL_GREGISTERS]; // 16 8-bit general
     unsigned short I; // 16-bit memory register
+    unsigned char DT; // delay timer
+    unsigned char ST; // sound timer
+    unsigned short PC; // program counter
+    unsigned char SP; // stack pointer
 } Chip8registers;
 
 #endif // CHIP8REGISTERS_H_
