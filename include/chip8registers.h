@@ -4,7 +4,7 @@
 #include "config.h"
 
 typedef struct {
-    unsigned char V[CHIP8_TOTAL_GREGISTERS]; // 16 8-bit general
+    unsigned char V[CHIP8_TOTAL_GEN_REGISTERS]; // 16 8-bit general
     unsigned short I; // 16-bit memory register
     unsigned char DT; // delay timer
     unsigned char ST; // sound timer
