@@ -68,13 +68,13 @@ int main(int argc, char **argv) {
         set_color_hex(renderer, BACKGROUND_COLOR);
         SDL_RenderClear(renderer); // clears with bg color
 
-        set_color_hex(renderer, FOREGROUND_COLOR);
-        SDL_Rect r;
-        r.x = 0;
-        r.y = 0;
-        r.w = 40;
-        r.h = 40;
-        SDL_RenderDrawRect(renderer, &r); // draws rect on buffer
+        /* set_color_hex(renderer, FOREGROUND_COLOR); */
+        /* SDL_Rect r; */
+        /* r.x = 0; */
+        /* r.y = 0; */
+        /* r.w = 40; */
+        /* r.h = 40; */
+        /* SDL_RenderDrawRect(renderer, &r); // draws rect on buffer */
         SDL_RenderPresent(renderer); // present next buffer change
     }
 
