@@ -1,6 +1,5 @@
 #ifndef CHIP8REGISTERS_H_
 #define CHIP8REGISTERS_H_
-
 #include "config.h"
 
 typedef struct {
@@ -12,4 +11,6 @@ typedef struct {
     unsigned char SP; // stack pointer
 } Chip8registers;
 
+void register_setV(int addr, unsigned char val, Chip8registers *registers);
+unsigned char register_getV(int addr, Chip8registers *registers);
 #endif // CHIP8REGISTERS_H_
