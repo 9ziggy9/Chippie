@@ -24,3 +24,15 @@ unsigned char memory_get(int addr, Chip8memory *memory) {
     memory_in_bounds(addr);
     return memory->memory[addr];
 }
+
+void memory_dump(Chip8memory *memory) {
+    printf("----- MEMORY DUMP -----\n");
+    for (int i = 0; i < CHIP8_MEMORY_SIZE; i++) {
+        printf("\033[0;32m"); // set green
+        if (memory->memory[i] != 0) {
+            printf("Address 0x%x: \033[0m", i);
+            printf("%c\n", memory->memory[i]);
+        }
+    }
+    printf("\033[0m"); // set white
+}

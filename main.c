@@ -44,6 +44,9 @@ int main(int argc, char **argv) {
     printf("%c\n", memory_get(0xFF, &chip8.memory));
     printf("%c\n", register_getV(0x0F, &chip8.registers));
 
+    memory_dump(&chip8.memory);
+    register_dumpV(&chip8.registers);
+
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
     SDL_Window *window = SDL_CreateWindow(

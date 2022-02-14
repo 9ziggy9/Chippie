@@ -14,4 +14,5 @@ typedef struct {
 void registers_initV(Chip8registers *registers);
 void register_setV(int addr, unsigned char val, Chip8registers *registers);
 unsigned char register_getV(int addr, Chip8registers *registers);
+void register_dumpV(Chip8registers *registers);
 #endif // CHIP8REGISTERS_H_
