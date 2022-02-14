@@ -9,6 +9,12 @@ static void memory_in_bounds(int addr) {
     printf(" \033[0;32m\xE2\x9C\x93\033[0m\n"); // green check mark
 }
 
+void memory_init(Chip8memory *memory) {
+    for (int i = 0; i < CHIP8_MEMORY_SIZE; i++) {
+        memory->memory[i] = 0;
+    }
+}
+
 void memory_set(int addr, unsigned char val, Chip8memory *memory) {
     memory_in_bounds(addr);
     memory->memory[addr] = val;

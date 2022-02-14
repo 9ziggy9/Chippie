@@ -34,10 +34,15 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
 int main(int argc, char **argv) {
 
     Chip8 chip8;
+
+    registers_initV(&chip8.registers);
+    memory_init(&chip8.memory);
+
     register_setV(0x0F, 50, &chip8.registers);
     memory_set(0xFF, 'Z', &chip8.memory);
+
     printf("%c\n", memory_get(0xFF, &chip8.memory));
-    printf("%c\n", register_getV(0x0F, &chip8.registers)); //need register get, etc
+    printf("%c\n", register_getV(0x0F, &chip8.registers));
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
