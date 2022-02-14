@@ -25,6 +25,7 @@ unsigned char memory_get(int addr, Chip8memory *memory) {
     return memory->memory[addr];
 }
 
+// Ideally should be able to choose format of dump values
 void memory_dump(Chip8memory *memory) {
     printf("----- MEMORY DUMP -----\n");
     for (int i = 0; i < CHIP8_MEMORY_SIZE; i++) {

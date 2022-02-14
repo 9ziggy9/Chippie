@@ -26,6 +26,7 @@ unsigned char register_getV(int addr, Chip8registers *registers) {
     return registers->V[addr];
 }
 
+// Ideally should be able to choose format of dump values
 void register_dumpV(Chip8registers *registers) {
     printf("----- REGISTER DUMP -----\n");
     for (int i = 0; i < CHIP8_TOTAL_GEN_REGISTERS; i++) {
