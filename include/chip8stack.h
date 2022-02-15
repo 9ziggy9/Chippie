@@ -1,0 +1,17 @@
+#ifndef CHIP8STACK_H_
+#define CHIP8STACK_H_
+#include "config.h"
+
+// Kinda weird, we need to forward declare Chip8 struct to avoid
+// loop during compilation; Chip8 has Chip8stack type nested in
+// its implementation.
+struct Chip8;
+
+typedef struct {
+    unsigned short stack[CHIP8_STACK_DEPTH];
+} Chip8stack;
+
+void stack_push(unsigned short val, struct Chip8* chip8);
+unsigned short stack_pop(struct Chip8* chip8);
+
+#endif // CHIP8STACK_H_
