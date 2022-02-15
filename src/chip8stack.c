@@ -4,8 +4,17 @@
 #include "../include/chip8.h"
 
 static void stack_in_bounds(struct Chip8* chip8) {
+    assert(chip8->registers.SP < CHIP8_STACK_DEPTH);
 }
 
 void stack_push(unsigned short val, struct Chip8* chip8) {
-    printf("Chip8 %d", chip8->registers.V[0]);
+    stack_in_bounds(chip8);
+    chip8->stack.buffer[chip8->registers.SP] = val;
+    chip8->registers.SP++;
+}
+
+unsigned short stack_pop(struct Chip8* chip8) {
+    chip8->registers.SP--;
+    stack_in_bounds(chip8);
+    return chip8->stack.buffer[chip8->registers.SP];
 }

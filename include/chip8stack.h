@@ -12,7 +12,7 @@
 struct Chip8;
 
 typedef struct {
-    unsigned short stack[CHIP8_STACK_DEPTH];
+    unsigned short buffer[CHIP8_STACK_DEPTH];
 } Chip8stack;
 
 void stack_push(unsigned short val, struct Chip8* chip8);
