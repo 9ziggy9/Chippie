@@ -5,9 +5,9 @@ INCLUDES=-I ./include
 PKGS=sdl2
 CFLAGS=-Wall -ggdb -std=c11 -pedantic `pkg-config --cflags sdl2`
 LIBS=`pkg-config --libs sdl2`
-OBJECTS=./build/chip8memory.o ./build/chip8registers.o
+OBJECTS=./build/chip8memory.o ./build/chip8registers.o ./build/chip8stack.o
 
-all: chip8memory chip8registers chippie
+all: chip8stack chip8memory chip8registers chippie
 
 chippie: main.c $(OBJECTS)
 	$(CC) $(INCLUDES) $(CFLAGS) main.c $(OBJECTS) $(LIBS) -o chippie
@@ -17,6 +17,9 @@ chip8memory: src/chip8memory.c
 
 chip8registers: src/chip8registers.c
 	$(CC) $(INCLUDES) -g ./src/chip8registers.c -c -o ./build/chip8registers.o
+
+chip8stack: src/chip8stack.c
+	$(CC) $(INCLUDES) -g ./src/chip8stack.c -c -o ./build/chip8stack.o
 
 clean:
 	rm -rf ./chippie ./build/*

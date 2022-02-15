@@ -33,6 +33,7 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
 
 int main(int argc, char **argv) {
 
+    // TESTING LAND //
     struct Chip8 chip8;
 
     registers_initV(&chip8.registers);
@@ -46,6 +47,13 @@ int main(int argc, char **argv) {
 
     memory_dump(&chip8.memory);
     register_dumpV(&chip8.registers);
+
+    chip8.registers.SP = 0;
+    stack_push(0xff, &chip8);
+    stack_push(0xaa, &chip8);
+    printf("%x\n", stack_pop(&chip8));
+    printf("%x\n", stack_pop(&chip8));
+    // TESTING LANDS END //
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
 
