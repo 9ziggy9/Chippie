@@ -33,7 +33,7 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
 
 int main(int argc, char **argv) {
 
-    Chip8 chip8;
+    struct Chip8 chip8;
 
     registers_initV(&chip8.registers);
     memory_init(&chip8.memory);

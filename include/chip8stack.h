@@ -5,6 +5,10 @@
 // Kinda weird, we need to forward declare Chip8 struct to avoid
 // loop during compilation; Chip8 has Chip8stack type nested in
 // its implementation.
+//
+// Out of paranoia, I've chosen to return Chip8 to raw struct without
+// typedef; though I noticed even with -Wall and -pedantic no actual
+// compiler warning was given.
 struct Chip8;
 
 typedef struct {

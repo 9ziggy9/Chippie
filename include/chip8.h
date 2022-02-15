@@ -6,10 +6,10 @@
 #include "chip8registers.h"
 #include "chip8stack.h"
 
-typedef struct {
+struct Chip8 {
     Chip8memory memory;
     Chip8registers registers;
     Chip8stack stack;
-} Chip8;
+};
 
 #endif // CHIP8_H_
