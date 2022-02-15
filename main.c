@@ -51,6 +51,7 @@ int main(int argc, char **argv) {
     chip8.registers.SP = 0;
     stack_push(0xff, &chip8);
     stack_push(0xaa, &chip8);
+    stack_dump(&chip8.stack);
     printf("%x\n", stack_pop(&chip8));
     printf("%x\n", stack_pop(&chip8));
     // TESTING LANDS END //

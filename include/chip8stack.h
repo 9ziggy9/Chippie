@@ -17,5 +17,6 @@ typedef struct {
 
 void stack_push(unsigned short val, struct Chip8* chip8);
 unsigned short stack_pop(struct Chip8* chip8);
+void stack_dump(Chip8stack *stack);
 
 #endif // CHIP8STACK_H_
