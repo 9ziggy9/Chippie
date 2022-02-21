@@ -1,4 +1,9 @@
 #include "../include/chip8keyboard.h"
+#include <assert.h>
+
+static void key_in_bounds(int key)  {
+    assert(key >= 0 && key < CHIP8_KEYS);
+}
 
 // Given a map of keys:
 // 0, 0, 0, 0, 0, 0, 0xff, 0, 0, 0, 0, 0
