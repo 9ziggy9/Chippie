@@ -58,14 +58,13 @@ int main(int argc, char **argv) {
     stack_push(0xff, &chip8);
     stack_push(0xaa, &chip8);
     stack_dump(&chip8.stack);
-    printf("POPPED: %x\n", stack_pop(&chip8));
-    printf("POPPED: %x\n", stack_pop(&chip8));
+    printf("POPPED: 0x%x\n", stack_pop(&chip8));
+    printf("POPPED: 0x%x\n", stack_pop(&chip8));
 
     // keyboard
     clear_keys(&chip8.keyboard);
     key_down(0x0f, &chip8.keyboard);
     dump_keys(&chip8.keyboard);
-
     // TESTING LANDS END //
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));

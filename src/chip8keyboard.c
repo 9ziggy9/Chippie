@@ -9,7 +9,7 @@ static void key_in_bounds(int key)  {
 // Given a map of keys:
 // 0, 0, 0, 0, 0, 0, 0xff, 0, 0, 0, 0, 0
 // -------------------^^----------------
-// keyboard_map locates key and returns index as char
+// keyboard_map locates key and returns index
 int keyboard_map(const char* map, char key) {
     for (int i = 0; i < CHIP8_KEYS; i++) {
         if (map[i] == key) {
