@@ -14,5 +14,6 @@ bool key_is_down(int key, const Chip8keyboard* keyboard);
 int keyboard_map(const char* map, char key);
 void dump_keys(const Chip8keyboard* keyboard);
 void clear_keys(Chip8keyboard* keyboard);
+extern const char KEYBOARD_MAP[CHIP8_KEYS];
 
 #endif // CHIP8KEYBOARD_H_
