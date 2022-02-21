@@ -12,3 +12,15 @@ int keyboard_map(const char* map, char key) {
     }
     return -1; // cannot find key code
 }
+
+void keyboard_down(int key, Chip8keyboard* keyboard) {
+    keyboard->keyboard[key] = true;
+}
+
+void keyboard_up(int key, Chip8keyboard* keyboard) {
+    keyboard->keyboard[key] = false;
+}
+
+bool keyboard_is_down(int key, Chip8keyboard* keyboard) {
+    return keyboard->keyboard[key];
+}
