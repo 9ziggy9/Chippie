@@ -11,4 +11,6 @@ typedef struct {
 void keyboard_down(int key, Chip8keyboard* keyboard);
 void keyboard_up(int key, Chip8keyboard* keyboard);
 bool keyboard_is_down(int key, Chip8keyboard* keyboard);
+int keyboard_map(const char* map, char key);
+
 #endif // CHIP8KEYBOARD_H_
