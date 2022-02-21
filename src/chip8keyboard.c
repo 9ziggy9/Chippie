@@ -20,14 +20,17 @@ int keyboard_map(const char* map, char key) {
 }
 
 void key_down(int key, Chip8keyboard* keyboard) {
+    key_in_bounds(key);
     keyboard->keyboard[key] = true;
 }
 
 void key_up(int key, Chip8keyboard* keyboard) {
+    key_in_bounds(key);
     keyboard->keyboard[key] = false;
 }
 
 bool key_is_down(int key, const Chip8keyboard* keyboard) {
+    key_in_bounds(key);
     return keyboard->keyboard[key];
 }
 
@@ -40,7 +43,7 @@ void clear_keys(Chip8keyboard* keyboard) {
 void dump_keys(const Chip8keyboard* keyboard) {
     for (int i = 0; i < CHIP8_KEYS; i++) {
         if (key_is_down(i, keyboard)) {
-            printf("%x is down\n", keyboard->keyboard[i]);
+            printf("Key #%d is down\n", i);
         }
     }
 }
