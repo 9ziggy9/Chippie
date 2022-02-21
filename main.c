@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 #include <SDL2/SDL.h>
 
 #include "include/colors.h"
 #include "include/chip8.h"
+#include "include/chip8keyboard.h"
 
 int sdl_check_error(int code) {
     if (code < 0) {
@@ -36,24 +39,33 @@ int main(int argc, char **argv) {
     // TESTING LAND //
     struct Chip8 chip8;
 
+    // registers
     registers_initV(&chip8.registers);
     memory_init(&chip8.memory);
 
     register_setV(0x0F, 50, &chip8.registers);
     memory_set(0xFF, 'Z', &chip8.memory);
 
+    // memory
     printf("%c\n", memory_get(0xFF, &chip8.memory));
     printf("%c\n", register_getV(0x0F, &chip8.registers));
 
     memory_dump(&chip8.memory);
     register_dumpV(&chip8.registers);
 
+    // stack
     chip8.registers.SP = 0;
     stack_push(0xff, &chip8);
     stack_push(0xaa, &chip8);
     stack_dump(&chip8.stack);
     printf("%x\n", stack_pop(&chip8));
     printf("%x\n", stack_pop(&chip8));
+
+    // keyboard
+    keyboard_down(0x0f, &chip8.keyboard);
+    bool is_down = keyboard_is_down(0xff, &chip8.keyboard);
+    printf("0x0f is currently %s\n", is_down == true ? "down" : "up");
+
     // TESTING LANDS END //
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
