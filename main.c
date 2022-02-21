@@ -58,13 +58,13 @@ int main(int argc, char **argv) {
     stack_push(0xff, &chip8);
     stack_push(0xaa, &chip8);
     stack_dump(&chip8.stack);
-    printf("%x\n", stack_pop(&chip8));
-    printf("%x\n", stack_pop(&chip8));
+    printf("POPPED: %x\n", stack_pop(&chip8));
+    printf("POPPED: %x\n", stack_pop(&chip8));
 
     // keyboard
-    keyboard_down(0x0f, &chip8.keyboard);
-    bool is_down = keyboard_is_down(0xff, &chip8.keyboard);
-    printf("0x0f is currently %s\n", is_down == true ? "down" : "up");
+    clear_keys(&chip8.keyboard);
+    key_down(0x0f, &chip8.keyboard);
+    dump_keys(&chip8.keyboard);
 
     // TESTING LANDS END //
 
