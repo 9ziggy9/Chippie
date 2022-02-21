@@ -49,7 +49,7 @@ void clear_keys(Chip8keyboard* keyboard) {
 void dump_keys(const Chip8keyboard* keyboard) {
     for (int i = 0; i < CHIP8_KEYS; i++) {
         if (key_is_down(i, keyboard)) {
-            printf("Key #%d is down\n", i);
+            printf("Real key 0x%x is down\n", i);
         }
     }
 }
