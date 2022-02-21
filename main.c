@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
     clear_keys(&chip8.keyboard);
     key_down(0x0f, &chip8.keyboard);
     dump_keys(&chip8.keyboard);
-    printf("%d\n", keyboard_map(KEYBOARD_MAP, 0x01));
+    printf("%d\n", keyboard_map(KEYBOARD_MAP, 0x02));
     // TESTING LANDS END //
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
