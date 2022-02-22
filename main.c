@@ -97,11 +97,15 @@ int main(int argc, char **argv) {
                 case SDL_KEYDOWN: {
                     char key = event.key.keysym.sym;
                     int vkey = keyboard_map(KEYBOARD_MAP, key);
-                    printf("Key is down (R: %c, V: %d)\n", key, vkey);
+                    printf("Key is down (R: %c, V: %x)\n", key, vkey);
+                    if (vkey != -1) key_down(vkey, &chip8.keyboard);
                 } break;
 
                 case SDL_KEYUP: {
+                    char key = event.key.keysym.sym;
+                    int vkey = keyboard_map(KEYBOARD_MAP, key);
                     printf("Key is up\n");
+                    if (vkey != -1) key_up(vkey, &chip8.keyboard);
                 } break;
             }
         }
