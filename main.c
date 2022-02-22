@@ -38,6 +38,7 @@ int main(int argc, char **argv) {
 
     // TESTING LAND //
     struct Chip8 chip8;
+    chip8_init(&chip8);
 
     // registers
     registers_initV(&chip8.registers);
