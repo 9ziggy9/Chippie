@@ -93,6 +93,14 @@ int main(int argc, char **argv) {
                 case SDL_QUIT: {
                     quit = 1;
                 } break;
+
+                case SDL_KEYDOWN: {
+                    printf("Key is down\n");
+                } break;
+
+                case SDL_KEYUP: {
+                    printf("Key is up\n");
+                } break;
             }
         }
 
