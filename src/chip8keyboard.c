@@ -1,11 +1,12 @@
 #include "../include/chip8keyboard.h"
 #include <assert.h>
 #include <stdio.h>
+#include "SDL2/SDL.h"
 
 const char KEYBOARD_MAP[CHIP8_KEYS] = {
-    0x00, 0x01, 0x02, 0x03, 0x04, 0x05,
-    0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,
-    0x0C, 0x0D, 0x0E, 0x0F
+    SDLK_0, SDLK_1, SDLK_2, SDLK_4, SDLK_5,
+    SDLK_6, SDLK_7, SDLK_8, SDLK_9, SDLK_a,
+    SDLK_b, SDLK_c, SDLK_d, SDLK_e, SDLK_f
 };
 
 static void key_in_bounds(int key)  {
