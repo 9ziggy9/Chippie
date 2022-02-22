@@ -95,7 +95,9 @@ int main(int argc, char **argv) {
                 } break;
 
                 case SDL_KEYDOWN: {
-                    printf("Key is down\n");
+                    char key = event.key.keysym.sym;
+                    int vkey = keyboard_map(KEYBOARD_MAP, key);
+                    printf("Key is down (R: %c, V: %d)\n", key, vkey);
                 } break;
 
                 case SDL_KEYUP: {
