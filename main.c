@@ -8,6 +8,7 @@
 #include "include/colors.h"
 #include "include/chip8.h"
 #include "include/chip8keyboard.h"
+#include "include/chip8screen.h"
 
 int sdl_check_error(int code) {
     if (code < 0) {
@@ -67,6 +68,10 @@ int main(int argc, char **argv) {
     key_down(0x0f, &chip8.keyboard);
     dump_keys(&chip8.keyboard);
     printf("%d\n", keyboard_map(KEYBOARD_MAP, 0x02));
+
+    // screen
+    pixel_set(10, 10, &chip8.screen);
+
     // TESTING LANDS END //
 
     sdl_check_error(SDL_Init(SDL_INIT_EVERYTHING));
@@ -114,13 +119,20 @@ int main(int argc, char **argv) {
         set_color_hex(renderer, BACKGROUND_COLOR);
         SDL_RenderClear(renderer); // clears with bg color
 
-        /* set_color_hex(renderer, FOREGROUND_COLOR); */
-        /* SDL_Rect r; */
-        /* r.x = 0; */
-        /* r.y = 0; */
-        /* r.w = 40; */
-        /* r.h = 40; */
-        /* SDL_RenderDrawRect(renderer, &r); // draws rect on buffer */
+        for (int y = 0; y < CHIP8_DISPLAY_HEIGHT; y++) {
+            for (int x = 0; x < CHIP8_DISPLAY_WIDTH; x++) {
+                if (pixel_is_set(x, y, &chip8.screen)) {
+                    set_color_hex(renderer, FOREGROUND_COLOR);
+                    SDL_Rect r;
+                    r.w = WINDOW_SCALE;
+                    r.h = WINDOW_SCALE;
+                    r.x = x * WINDOW_SCALE;
+                    r.y = y * WINDOW_SCALE;
+                    SDL_RenderFillRect(renderer, &r);
+                }
+            }
+        }
+
         SDL_RenderPresent(renderer); // present next buffer change
     }
 

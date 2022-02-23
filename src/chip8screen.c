@@ -6,12 +6,12 @@ static void screen_check_bounds(int x, int y) {
     assert(y >= 0 && y < CHIP8_DISPLAY_HEIGHT);
 }
 
-void pixel_set(int x, int y, Screen* screen) {
+void pixel_set(int x, int y, Chip8screen* screen) {
     screen_check_bounds(x,y);
     screen->pixels[y][x] = true;
 }
 
-bool pixel_is_set(int x, int y, Screen* screen) {
+bool pixel_is_set(int x, int y, Chip8screen* screen) {
     screen_check_bounds(x,y);
     return screen->pixels[y][x];
 }

@@ -5,9 +5,9 @@
 
 typedef struct {
     bool pixels[CHIP8_DISPLAY_HEIGHT][CHIP8_DISPLAY_WIDTH];
-} Screen;
+} Chip8screen;
 
-void pixel_set(int x, int y, Screen* screen);
-bool pixel_is_set(int x, int y, Screen* screen);
+void pixel_set(int x, int y, Chip8screen* screen);
+bool pixel_is_set(int x, int y, Chip8screen* screen);
 
 #endif // CHIP8SCREEN_H_
