@@ -32,4 +32,5 @@ const char CHAR_SET[] = {
 
 void chip8_init(struct Chip8* chip8) {
     memset(chip8, 0, sizeof(struct Chip8));
+    memcpy(&chip8->memory.memory, CHAR_SET, sizeof(CHAR_SET));
 }
