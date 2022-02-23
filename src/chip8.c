@@ -1,6 +1,16 @@
 #include "../include/chip8.h"
 #include <memory.h>
 
+// hexadecimal encoding of char set:
+/*
+
+ ****  11110000  0xF0
+ *  *  10010000  0x90
+ *  *  10010000  0x90
+ *  *  10010000  0x90
+ ****  11110000  0xF0
+
+ * * */
 const char CHAR_SET[] = {
     0x0f, 0x90, 0x90, 0x90, 0xf0,
     0x20, 0x60, 0x20, 0x20, 0x70,
