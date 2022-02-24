@@ -71,6 +71,7 @@ int main(int argc, char **argv) {
 
     // screen
     pixel_set(10, 10, &chip8.screen);
+    pixel_set(63, 31, &chip8.screen);
 
     // TESTING LANDS END //
 
@@ -119,8 +120,8 @@ int main(int argc, char **argv) {
         set_color_hex(renderer, BACKGROUND_COLOR);
         SDL_RenderClear(renderer); // clears with bg color
 
-        for (int y = 0; y < CHIP8_DISPLAY_HEIGHT; y++) {
-            for (int x = 0; x < CHIP8_DISPLAY_WIDTH; x++) {
+        for (int x = 0; x < CHIP8_DISPLAY_WIDTH; x++) {
+            for (int y = 0; y < CHIP8_DISPLAY_HEIGHT; y++) {
                 if (pixel_is_set(x, y, &chip8.screen)) {
                     set_color_hex(renderer, FOREGROUND_COLOR);
                     SDL_Rect r;
