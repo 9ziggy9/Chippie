@@ -1,5 +1,6 @@
 #include "../include/chip8screen.h"
 #include <assert.h>
+#include <unistd.h>
 
 static void screen_check_bounds(int x, int y) {
     assert(x >= 0 && x < CHIP8_DISPLAY_WIDTH);
@@ -30,7 +31,9 @@ bool draw_sprite(int x, int y, const unsigned char* sprite,
 	pixel_collision = true;
 	continue;
       }
-      screen->pixels[dy+y][dx+x] = true;
+      screen->pixels
+	[(dy+y) % CHIP8_DISPLAY_HEIGHT]
+	[(dx+x) % CHIP8_DISPLAY_WIDTH] = true;
     }
   }
   return pixel_collision;

@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
 
     // screen
     draw_sprite(28, 12, &chip8.memory.memory[0x4B], 5, &chip8.screen);
+    draw_sprite(62, 10, &chip8.memory.memory[0x00], 5, &chip8.screen);
 
     // TESTING LANDS END //
 
