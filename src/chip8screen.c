@@ -41,3 +41,11 @@ bool draw_sprite(int x, int y, const unsigned char* sprite,
   }
   return pixel_collision;
 }
+
+void clear_sprites(Chip8screen* screen) {
+  for (int y = 0; y < CHIP8_DISPLAY_HEIGHT; y++) {
+    for (int x = 0; x < CHIP8_DISPLAY_WIDTH; x++) {
+      screen->pixels[y][x] = false;
+    }
+  }
+}

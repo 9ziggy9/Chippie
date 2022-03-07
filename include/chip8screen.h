@@ -11,5 +11,5 @@ void pixel_set(int x, int y, Chip8screen* screen);
 bool pixel_is_set(int x, int y, Chip8screen* screen);
 bool draw_sprite(int x, int y, const unsigned char* sprite,
 		 int num_bytes, Chip8screen* screen);
-
+void clear_sprites(Chip8screen* screen);
 #endif // CHIP8SCREEN_H_

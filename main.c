@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <time.h>
+
 #include <SDL2/SDL.h>
 
 #include "include/colors.h"
@@ -36,11 +38,23 @@ void set_color_hex(SDL_Renderer *renderer, Uint32 hex) {
                         (hex >> (0*8)) & 0xFF));
 }
 
+int Usleep(long miliseconds) {
+  struct timespec rem;
+  struct timespec req = {
+    (int) (miliseconds / 1000),
+    (miliseconds % 1000) * 1000000
+  };
+  return nanosleep(&req, &rem);
+}
+
 int main(int argc, char **argv) {
 
     // TESTING LAND //
     struct Chip8 chip8;
     chip8_init(&chip8);
+
+    // start timer
+    chip8.registers.DT = 255;
 
     // registers
     registers_initV(&chip8.registers);
@@ -68,8 +82,8 @@ int main(int argc, char **argv) {
     printf("%d\n", keyboard_map(KEYBOARD_MAP, 0x02));
 
     // screen
-    draw_sprite(28, 12, &chip8.memory.memory[0x4B], 5, &chip8.screen);
-    draw_sprite(62, 10, &chip8.memory.memory[0x00], 5, &chip8.screen);
+    /* draw_sprite(28, 12, &chip8.memory.memory[0x4B], 5, &chip8.screen); */
+    /* draw_sprite(62, 10, &chip8.memory.memory[0x00], 5, &chip8.screen); */
 
     // TESTING LANDS END //
 
@@ -103,7 +117,13 @@ int main(int argc, char **argv) {
                     char key = event.key.keysym.sym;
                     int vkey = keyboard_map(KEYBOARD_MAP, key);
                     printf("Key is down (R: %c, V: %x)\n", key, vkey);
-                    if (vkey != -1) key_down(vkey, &chip8.keyboard);
+		    /* TODO: CLEAN UP, this is only here for testing */
+                    if (vkey != -1) {
+			key_down(vkey, &chip8.keyboard);
+			clear_sprites(&chip8.screen);
+			draw_sprite(28, 12, &chip8.memory.memory[5 * vkey],
+				    5, &chip8.screen);
+		    }
                 } break;
 
                 case SDL_KEYUP: {
@@ -133,6 +153,12 @@ int main(int argc, char **argv) {
         }
 
         SDL_RenderPresent(renderer); // present next buffer change
+
+	if (chip8.registers.DT > 0) {
+	  Usleep(100);
+	  chip8.registers.DT--;
+	  printf("DELAY: %d", chip8.registers.DT);
+	}
     }
 
     SDL_DestroyWindow(window);
