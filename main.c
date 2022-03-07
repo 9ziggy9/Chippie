@@ -72,6 +72,9 @@ int main(int argc, char **argv) {
     // screen
     pixel_set(10, 10, &chip8.screen);
     pixel_set(63, 31, &chip8.screen);
+    pixel_set(53, 31, &chip8.screen);
+    pixel_set(49, 22, &chip8.screen);
+    pixel_set(25, 7, &chip8.screen);
     pixel_set(34, 15, &chip8.screen);
 
     // TESTING LANDS END //
