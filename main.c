@@ -43,10 +43,7 @@ int main(int argc, char **argv) {
 
     // registers
     registers_initV(&chip8.registers);
-    memory_init(&chip8.memory);
-
     register_setV(0x0F, 50, &chip8.registers);
-    memory_set(0xFF, 'Z', &chip8.memory);
 
     // memory
     printf("%c\n", memory_get(0xFF, &chip8.memory));
@@ -70,12 +67,7 @@ int main(int argc, char **argv) {
     printf("%d\n", keyboard_map(KEYBOARD_MAP, 0x02));
 
     // screen
-    pixel_set(10, 10, &chip8.screen);
-    pixel_set(63, 31, &chip8.screen);
-    pixel_set(53, 31, &chip8.screen);
-    pixel_set(49, 22, &chip8.screen);
-    pixel_set(25, 7, &chip8.screen);
-    pixel_set(34, 15, &chip8.screen);
+    draw_sprite(28, 12, &chip8.memory.memory[0x10], 5, &chip8.screen);
 
     // TESTING LANDS END //
 
