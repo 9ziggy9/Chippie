@@ -19,6 +19,7 @@ bool pixel_is_set(int x, int y, Chip8screen* screen) {
 
 bool draw_sprite(int x, int y, const unsigned char* sprite,
 		 int num_bytes, Chip8screen* screen) {
+  screen_check_bounds(x,y);
   bool pixel_collision = false;
   for (int dy = 0; dy < num_bytes; dy++) {
     char c = sprite[dy];
@@ -27,13 +28,15 @@ bool draw_sprite(int x, int y, const unsigned char* sprite,
     /* binary place, 0b00000001 0b00000010, etc, we */
     /* and to see if the given place is occupied. */
     /* If it is not, we continue (do not draw). */
-      if ((c & (0x80 >> dx)) == 0) {
-	pixel_collision = true;
+      if ((c & (0x80 >> dx)) == 0)
 	continue;
-      }
+      if (screen->pixels
+	    [(dy+y) % CHIP8_DISPLAY_HEIGHT]
+	    [(dx+x) % CHIP8_DISPLAY_WIDTH])
+	pixel_collision = true;
       screen->pixels
 	[(dy+y) % CHIP8_DISPLAY_HEIGHT]
-	[(dx+x) % CHIP8_DISPLAY_WIDTH] = true;
+	[(dx+x) % CHIP8_DISPLAY_WIDTH] ^= true;
     }
   }
   return pixel_collision;
