@@ -152,13 +152,13 @@ int main(int argc, char **argv) {
             }
         }
 
-        SDL_RenderPresent(renderer); // present next buffer change
-
 	if (chip8.registers.DT > 0) {
 	  Usleep(100);
 	  chip8.registers.DT--;
-	  printf("DELAY: %d", chip8.registers.DT);
+	  printf("DELAY: %d\n", chip8.registers.DT);
 	}
+
+        SDL_RenderPresent(renderer); // present next buffer change
     }
 
     SDL_DestroyWindow(window);
