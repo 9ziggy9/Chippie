@@ -37,6 +37,9 @@ Display is monochromatic 64x32 pixels (we will scale up)
 When pixel collisions occur, they XOR'd.
 Pixels out of range will be remapped to opposite edges.
 
+#### Current Issues
+Finding a portable way to implement sound is proving to be rather annoying. I think I will need to look into the source code of beep to understand how ioctl calls are supposed to work.
+
 #### SOURCES
 - chip-8 specifications: http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
 - guide: https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
